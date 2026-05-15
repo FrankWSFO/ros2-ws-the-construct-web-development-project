@@ -1,4 +1,4 @@
-image: fastbot_home_sim.pgm
+image: fastbot_home_sim_map.pgm
 mode: trinary
 resolution: 0.03
 origin: [-2.37, -8.22, 0]
