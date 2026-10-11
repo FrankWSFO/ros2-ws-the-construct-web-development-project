@@ -20,7 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'tf2_web_republisher = tf2_web_republisher_py.tf2_web_republisher_py:main'
+            'tf2_web_republisher = tf2_web_republisher_py.tf2_web_republisher_py:main',
+            'test_action = tf2_web_republisher_py.test_action:main'
         ],
     },
 )

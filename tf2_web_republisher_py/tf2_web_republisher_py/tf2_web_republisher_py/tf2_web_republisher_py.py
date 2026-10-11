@@ -1,6 +1,6 @@
 import rclpy
 from rclpy.node import Node
-from rclpy.action import ActionServer
+from rclpy.action import ActionServer, GoalResponse
 from rclpy.callback_groups import ReentrantCallbackGroup
 from tf2_web_republisher.msg import TFArray
 from tf2_web_republisher.srv import RepublishTFs
@@ -8,11 +8,30 @@ from tf2_web_republisher.action import TFSubscription
 from geometry_msgs.msg import TransformStamped, Transform
 from tf2_web_republisher_py.tf_pair import TFPair
 from tf2_ros import Buffer, TransformListener, TransformException
-from rclpy.executors import MultiThreadedExecutor
-
 from typing import List
 from uuid import uuid4
 from time import sleep
+from rcl_interfaces.srv import GetParameters
+from std_msgs.msg import String
+
+
+def fetch_robot_description(node):
+    client = node.create_client(
+        GetParameters,
+        '/fastbot_1_robot_state_publisher/get_parameters'
+    )
+
+    client.wait_for_service()
+
+    req = GetParameters.Request()
+    req.names = ['robot_description']
+
+    future = client.call_async(req)
+    rclpy.spin_until_future_complete(node, future)
+
+    return future.result().values[0].string_value
+
+
 
 class ClientInfo(object):
     def __init__(self,client_id:int,tf_subscriptions:List[TFPair]=[],timer=None):
@@ -49,6 +68,15 @@ class TFRepublisher(Node):
                                                 cancel_callback=self.cancel_cb)
         self.republish_service = self.create_service(RepublishTFs, 'republish_tfs', self.request_cb)
         self.active_clients = {}
+
+        # self.urdf_pub = self.create_publisher(String, '/fastbot_1_robot_description_stringified', 10)
+        # self.robot_xml = fetch_robot_description(self)
+        # self.urdf_pub_timer = self.create_timer(0.1, self.pub_urdf)
+
+        self.get_logger().info("Initialized tf2_web_republisher")
+
+    # def pub_urdf(self):
+        # self.urdf_pub.publish(String(data=self.robot_xml))
 
     def goal_cb(self,goal_handle):
         goal = goal_handle.request
