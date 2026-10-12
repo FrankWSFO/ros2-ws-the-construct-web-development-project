@@ -62,13 +62,13 @@ Visualization Manager:
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /map
+        Value: /cartographer_map
       Update Topic:
         Depth: 5
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /map_updates
+        Value: /cartographer_map_updates
       Use Timestamp: false
       Value: true
     - Class: rviz_default_plugins/TF
@@ -97,16 +97,17 @@ Visualization Manager:
       Show Names: true
       Tree:
         map:
+          fastbot_1_base_link:
+            fastbot_1_camera:
+              {}
+            fastbot_1_lidar:
+              {}
+            fastbot_1_wheel_left:
+              {}
+            fastbot_1_wheel_right:
+              {}
           fastbot_1_odom:
-            fastbot_1_base_link:
-              fastbot_1_camera:
-                {}
-              fastbot_1_lidar:
-                {}
-              fastbot_1_wheel_left:
-                {}
-              fastbot_1_wheel_right:
-                {}
+            {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -196,9 +197,9 @@ Visualization Manager:
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 1.238564133644104
-        Y: -3.86024808883667
-        Z: -0.043533988296985626
+        X: -0.5392078757286072
+        Y: -0.3060188591480255
+        Z: 0.019373329356312752
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
