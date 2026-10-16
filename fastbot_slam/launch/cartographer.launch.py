@@ -38,14 +38,14 @@ def generate_launch_description():
         # Cartographer expects scan and odom, so we remap so that wherever cartographer node says "look for scan", it actually looks for "/fastbot_1/scan"
         # It's like DNS record name resolution of urls to ips apparently ok 
         remappings=[
-            ('scan', '/fastbot_1/scan'),
-            ('odom', '/fastbot_1/odom')
+            ('scan', '/fastbot/scan'),
+            ('odom', '/fastbot/odom')
         ],
     )
 
     occupancy_grid_node = Node(
         package='cartographer_ros',
-        executable='cartographer_occupancy_grid_node',
+        executable='occupancy_grid_node',
         output='screen',
         name='occupancy_grid_node',
         parameters=[
