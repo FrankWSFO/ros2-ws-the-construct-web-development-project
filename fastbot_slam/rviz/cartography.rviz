@@ -78,18 +78,22 @@ Visualization Manager:
       Frames:
         All Enabled: false
         fastbot_ball_caster:
-          Value: true
+          Value: false
         fastbot_base_link:
           Value: true
         fastbot_camera:
-          Value: true
+          Value: false
         fastbot_motor_1:
-          Value: true
+          Value: false
         fastbot_motor_2:
-          Value: true
+          Value: false
         fastbot_n10_v2:
+          Value: false
+        fastbot_odom:
           Value: true
         laser_link:
+          Value: false
+        map:
           Value: true
       Marker Scale: 0.5
       Name: TF
@@ -109,6 +113,9 @@ Visualization Manager:
           fastbot_n10_v2:
             laser_link:
               {}
+        map:
+          fastbot_odom:
+            {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -126,9 +133,9 @@ Visualization Manager:
       Enabled: true
       Invert Rainbow: false
       Max Color: 255; 255; 255
-      Max Intensity: 189
+      Max Intensity: 178
       Min Color: 0; 0; 0
-      Min Intensity: 7
+      Min Intensity: 30
       Name: LaserScan
       Position Transformer: XYZ
       Selectable: true
@@ -148,7 +155,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: fastbot_base_link
+    Fixed Frame: map
     Frame Rate: 30
   Name: root
   Tools:
@@ -191,25 +198,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 8.752455711364746
+      Distance: 10.733402252197266
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 1.020901083946228
-        Y: -0.0701577216386795
-        Z: -0.03587925434112549
+        X: 0.16943888366222382
+        Y: -0.21104837954044342
+        Z: -0.009986030869185925
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.5353974103927612
+      Pitch: 1.5403971672058105
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.0003986358642578125
+      Yaw: 0.025397907942533493
     Saved: ~
 Window Geometry:
   Displays:
