@@ -60,23 +60,23 @@ def generate_launch_description():
     rviz_config = os.path.join(get_package_share_directory(
         'fastbot_slam'), 'rviz', 'cartography.rviz')
 
-    rviz_node = Node(
-        package='rviz2',
-        executable='rviz2',
-        output='screen',
-        name='rviz_node',
-        parameters=[
-                {'use_sim_time': False}
-        ],
-        arguments=['-d', rviz_config]
-    )
+    # rviz_node = Node(
+    #     package='rviz2',
+    #     executable='rviz2',
+    #     output='screen',
+    #     name='rviz_node',
+    #     parameters=[
+    #             {'use_sim_time': False}
+    #     ],
+    #     arguments=['-d', rviz_config]
+    # )
 
     # create and return launch description object
     return LaunchDescription(
         [
             cartographer_node,
             occupancy_grid_node,
-            rviz_node
+            # rviz_node
         ]
     )
 
